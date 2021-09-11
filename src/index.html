@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>GoodMatch</title>
+<!--<base href="/">-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--<link rel="icon" type="image/x-icon" href="favicon.ico">-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="papaparse.min.js"></script>
+</head>
+<body>
+  <form class="form-inline">
+    <div class="form-group">
+      <label for="files">Upload a CSV formatted file:</label>
+      <input type="file" id="files"  class="form-control" accept=".csv" required />
+    </div>
+    <div class="form-group">
+     <button type="submit" id="submit-file" class="btn btn-primary">Upload File</button>
+     </div>
+  </form>
+  <script>
+    	$('#files').parse({
+		config: {
+			delimiter: "auto",
+			complete: displayHTMLTable,
+		},
+		before: function(file, inputElem)
+		{
+			//console.log("Parsing file...", file);
+		},
+		error: function(err, file)
+		{
+			//console.log("ERROR:", err, file);
+		},
+		complete: function()
+		{
+			//console.log("Done with all files");
+		}
+	});
+
+  $('#files').parse({
+		config: {
+			delimiter: "auto",
+			complete: displayHTMLTable,
+		},
+		before: function(file, inputElem)
+		{
+			//console.log("Parsing file...", file);
+		},
+		error: function(err, file)
+		{
+			//console.log("ERROR:", err, file);
+		},
+		complete: function()
+		{
+			//console.log("Done with all files");
+		}
+	});
+
+  //Parsing(remove before submit)
+  $('#files').parse({
+		config: {
+			delimiter: "auto",
+			complete: displayHTMLTable,
+		},
+		before: function(file, inputElem)
+		{
+			//console.log("Parsing file...", file);
+		},
+		error: function(err, file)
+		{
+			//console.log("ERROR:", err, file);
+		},
+		complete: function()
+		{
+			//console.log("Done with all files");
+		}
+	});
+  </script>
+    <div class="container">
+      <div class="header">
+        <h2>The Good Match</h2>
+      </div>
+      <div class="main-body">
+        <div class="input">
+          <input type="text" id="name1" autocomplete="off" placeholder="Enter the first player">
+          <span id="span1">VS</span>
+          <input type="text" id="name2" autocomplete="off" placeholder="Enter the second player">
+        </div>
+        <div class="calculate">
+          <small id="error"></small>
+          <div class="calculate_btn">
+            <button class="btn" onclick="calcperc()">Calculate The Percentage(%)</button>
+  
+          </div>
+          <div class="answer">
+            
+          </div>
+          <div class="message">
+            
+          </div>
+        </div>
+      </div>
+      </div>
+  <app-root></app-root>
+</body>
+</html>
